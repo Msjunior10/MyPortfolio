@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matai Solutions - Snart redo!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #00ff00; /* Neon Green */
+            --secondary-color: #18181b; /* Dark background */
+            --text-color: #E0E0E0;
+            --background-color: #18181b;
+            --accent-glow: 0 0 15px var(--primary-color), 0 0 25px var(--primary-color);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,255,0,0.1) 0%, rgba(24,24,27,0.8) 70%);
+            z-index: -1;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            z-index: 10;
+            display: block;
+            transition: transform 0.2s;
+        }
+        .back-home svg {
+            cursor: pointer;
+            display: block;
+            filter: drop-shadow(0 0 8px #00ff00);
+        }
+        .back-home:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            background-color: rgba(24, 24, 27, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--accent-glow);
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            text-shadow: var(--accent-glow);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .progress-bar {
+            width: 80%;
+            height: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px auto;
+            box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.5);
+        }
+
+        .progress {
+            width: 85%; /* Adjust as needed */
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            animation: fillProgress 2s ease-out forwards;
+            box-shadow: var(--accent-glow);
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            text-shadow: var(--accent-glow);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fillProgress {
+            from { width: 0%; }
+            to { width: 85%; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="/?showLoader=dark" class="back-home" aria-label="Back to Home">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <defs>
+          <linearGradient id="arrow-gradient-dark" x1="0" y1="24" x2="48" y2="24" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00ff00"/>
+            <stop offset="1" stop-color="#18181b"/>
+          </linearGradient>
+        </defs>
+        <path d="M30 12L18 24L30 36" stroke="url(#arrow-gradient-dark)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <div class="container">
+        <h1>Project is under construction!</h1>
+        <h2>We are building something amazing!</h2>
+        <p>
+            Our new project is under active development and will be launching soon. 
+            We are working hard to create a unique and valuable experience for you. Stay tuned!
+        </p>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <p>Estimated Launch: Q4 2025</p>
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matai Somi-Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Loading -->
+  <div class="content" >
+    <div class="text">LOADING...</div>
+    <div class="text">LOADING...</div>
+  </div>
+  <!-- // Loading end //-->
+
+
+
+  <button id="scrollToTop" aria-label="Scroll to top">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+      <path d="M12 4l-8 8h6v8h4v-8h6z" fill="currentColor" />
+    </svg>
+  </button>
+
+
+  <!-- Main content -->
+  <div id="sparkles"></div>
+  <div id="main-content" style="display: none">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>Matai Somi</h2>
+        </div>
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About </a></li>
+          <li><a href="#services">Services </a></li>
+          <li><a href="#portfolio">Portfolio </a></li>
+          <li><a href="#contact">Contact </a></li>
+        </ul>
+        <div class="nav-cta">
+          <div class="cta-icons">
+            <a href="https://github.com/msjunior10" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="50" height="50" viewBox="0 0 24 24" fill="none">
+                <path fill="currentColor"
+                  d="M12 2C6.48 2 2 6.58 2 12.26c0 4.49 2.87 8.3 6.84 9.64.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05 .89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0112 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05 .55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.02 10.02 0 0022 12.26C22 6.58 17.52 2 12 2Z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/matai-somi-33632a325/" target="_blank" rel="noopener"
+              aria-label="LinkedIn">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+                <path fill="currentColor"
+                  d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z" />
+              </svg>
+            </a>
+            <a href="https://discord.com/users/1354452334528430412" target="_blank" rel="noopener" aria-label="Discord">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+                <path fill="currentColor"
+                  d="M21.72 5.84a19.78 19.78 0 0 0-4.37-1.36.07.07 0 0 0-.07.03c-.19.26-.4.6-.55.87a18.13 18.13 0 0 0-5.06 0c-.15-.27-.36-.61-.55-.87a.07.07 0 0 0-.07-.03A19.78 19.78 0 0 0 2.28 5.84a.07.07 0 0 0-.03.09c-2.77 4.13-3.52 8.15-3.16 12.13a.07.07 0 0 0 .03.05c2.7 2.13 5.32 3.41 7.94 4.09a.07.07 0 0 0 .08-.03c.61-.84 1.16-1.72 1.63-2.63a.07.07 0 0 0-.04-.1c-.7-.27-1.37-.59-2.02-.95a.07.07 0 0 1-.03-.09c.13-.1.26-.2.39-.3a.07.07 0 0 1 .07-.01c4.09 1.86 8.54 1.86 12.63 0a.07.07 0 0 1 .07.01c.13.1.26.2.39.3a.07.07 0 0 1-.03.09c-.65.36-1.32.68-2.02.95a.07.07 0 0 0-.04.1c.47.91 1.02 1.79 1.63 2.63a.07.07 0 0 0 .08.03c2.62-.68 5.24-1.96 7.94-4.09a.07.07 0 0 0 .03-.05c.36-3.98-.39-8-3.16-12.13a.07.07 0 0 0-.03-.09ZM8.07 15.14c-.89 0-1.61-.82-1.61-1.83s.72-1.83 1.61-1.83c.89 0 1.61.82 1.61 1.83s-.72 1.83-1.61 1.83Zm7.86 0c-.89 0-1.61-.82-1.61-1.83s.72-1.83 1.61-1.83c.89 0 1.61.82 1.61 1.83s-.72 1.83-1.61 1.83Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <input id="checkbox" type="checkbox" />
+        <label class="switch" for="checkbox">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
+            <path
+              d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z">
+            </path>
+          </svg>
+        </label>
+      </div>
+    </nav>
+    <!-- // Navigation Bar // -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title" id="typewriter-title">
+            <span class="title-line">Matai somi for coding</span>
+            <span class="title-line">& Development</span>
+          </h1>
+          <p class="hero-subtitle" id="typewriter-subtitle">
+            Hi, have a project in mind and want to creat something amazing ? you are in the right place, 
+            I’m Matai Somi a system developer with a passion for clean architecture, smart automation, 
+            and intuitive user experiences. I love building things that make technology feel simple
+          </p>
+          <div class="hero-buttons">
+            <a href="#portfolio" class="primary-button">View my Work</a>
+            <a href="#about" class="secondary-button">See More</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-group">
+          <div class="hero-visual">
+            <div class="hero-gradient spin glow float">
+              <div class="image-slider">
+                <img src="Msimage1.jpeg" class="active" />
+                <img src="Coding picture .png" loading="lazy" alt="Profile-picture" />
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!-- // Hero Section // -->
+
+
+
+
+
+
+
+    <!-- Marquee Section -->
+    <section id="logo-marquee">
+      <div class="logo-marquee">
+        <div class="logo-track">
+          <!-- En uppsättning ikoner (kan dupliceras fler gånger) -->
+          <div class="logo-item">
+            <img src="github.svg" loading="lazy" alt="GitHub" />
+          </div>
+          <div class="logo-item">
+            <img src="react.svg" loading="lazy" alt="React" />
+          </div>
+          <div class="logo-item">
+            <img src="javascript.svg" loading="lazy" alt="JavaScript" />
+          </div>
+          <div class="logo-item">
+            <img src="python.svg" loading="lazy" alt="Python" />
+          </div>
+          <div class="logo-item">
+            <img src="docker.svg" loading="lazy" alt="Docker" />
+          </div>
+          <div class="logo-item">
+            <img src="nodedotjs.svg" loading="lazy" alt="Node.js" />
+          </div>
+          <div class="logo-item">
+            <img src="vscode.svg" loading="lazy" alt="VS Code" />
+          </div>
+          <div class="logo-item">
+            <img src="git.svg" loading="lazy" alt="Git" />
+          </div>
+          <div class="logo-item">
+            <img src="tailwindcss.svg" loading="lazy" alt="Tailwind" />
+          </div>
+          <div class="logo-item">
+            <img src="html5.svg" loading="lazy" alt="HTML5" />
+          </div>
+          <div class="logo-item">
+            <img src="bootstrap.svg" loading="lazy" alt="HTML5" />
+          </div>
+          <div class="logo-item">
+            <img src="css.svg" loading="lazy" alt="CSS" />
+          </div>
+          <div class="logo-item">
+            <img src="Csharp.svg" loading="lazy" alt="C#" />
+          </div>
+          <div class="logo-item">
+            <img src="cplusplus.svg" loading="lazy" alt="C++" />
+          </div>
+          <div class="logo-item">
+            <img src="dotnet.svg" loading="lazy" alt="ASP.NET" />
+          </div>
+          <div class="logo-item">
+            <img src="express.svg" loading="lazy" alt="Express" />
+          </div>
+          <div class="logo-item">
+            <img src="nextdotjs.svg" loading="lazy" alt="Next.js" />
+          </div>
+          <div class="logo-item">
+            <img src="mongodb.svg" loading="lazy" alt="MongoDB" />
+          </div>
+          <div class="logo-item">
+            <img src="flutter.svg" loading="lazy" alt="Flutter" />
+          </div>
+          <div class="logo-item">
+            <img src="tsnode.svg" loading="lazy" alt="Flutter" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // Marquee Section // -->
+
+
+
+
+
+
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-description">
+              I’m a System Developer with a broad technical background and a passion for creating smart, efficient systems. 
+              Over the years, I’ve worked across multiple areas from backend development and API design to frontend 
+              engineering and system integration gives me a full understanding of how every layer connects.
+              I enjoy building solutions that simplify complexity, automate workflows, and bring structure to ideas. 
+              Whether it’s developing scalable applications, crafting intuitive interfaces, or designing clean architectures, 
+              my goal is always the same: to make technology feel seamless and human.
+              For me, coding isn’t just about syntax 
+              it’s about problem-solving, innovation, and creating digital experiences that last.
+            </p>
+            <div class="stats">
+              <div class="stat-item">
+                <h3>10+</h3>
+                <p>Projects Completed</p>
+              </div>
+              <div class="stat-item">
+                <h3>3+</h3>
+                <p>Happy Clients</p>
+              </div>
+              <div class="stat-item">
+                <h3>2+</h3>
+                <p>Years Experience</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="image-placeholder">
+              <img id="about-img" src="Coding picture3.png" loading="lazy" alt="About me" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // About Section // -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2 class="section-title centered">My Services</h2>
+        <p class="section-description centered">
+          I offer comprehensive solutions for your creative and digital needs
+        </p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <h3>Creative Design</h3>
+            <p>
+              Stunning visual designs that capture your brand's essence and
+              engage your audience.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🤖</div>
+            <h3>AI Solutions</h3>
+            <p>
+              Cutting-edge AI implementations to streamline your business
+              processes and enhance user experience.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>
+              Responsive, fast, and user-friendly websites built with the
+              latest technologies.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>Mobile Apps</h3>
+            <p>
+              Native and cross-platform mobile applications that deliver
+              exceptional user experiences.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔒</div>
+            <h3>Security</h3>
+            <p>
+              Robust security solutions to protect your applications and data from threats and vulnerabilities.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🖥️</div>
+            <h3>Desktop Apps</h3>
+            <p>
+              Custom and powerful desktop applications that boost productivity and enhance user experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // Services Section // -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Video Section-->
+
+    <div class="container-video">
+      <div class="video-intro">
+        <video src="Coding video123.mp4" autoplay muted loop playsinline loading="lazy"></video>
+      </div>
+    </div>
+
+    <!-- //Video Section // -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <h2 class="section-title centered">View My Work</h2>
+        <p class="section-description centered">
+          A curated selection of my best projects
+        </p>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <div class="portfolio-image" id="portfolio-e-commerce-website"></div>
+            <div class="portfolio-content">
+              <h3>E-commerce Website</h3>
+              <p>
+                Modern e-commerce platform featuring a seamless shopping experience, secure payment integration, and
+                responsive design for all devices.
+              </p>
+              <a href="#" class="view-work-btn" id="portfolio-category"">Web Design</a>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <div class="portfolio-image" id="portfolio-ai-bot"></div>
+            <div class="portfolio-content">
+              <h3>AI Bot</h3>
+              <p>
+                Intelligent chatbot solution designed to automate customer support, answer queries, and enhance user
+                engagement with
+                natural language understanding.
+              </p>
+              </p>
+              <a href="#" class="view-work-btn" id="portfolio-category">AI</a>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <div class="portfolio-image" id="portfolio-image-mobile-booking"></div>
+            <div class="portfolio-content">
+              <h3>Mobilt bokningssystem</h3>
+              <p>
+                User-friendly mobile booking system designed to simplify reservations, manage schedules, and provide
+                secure access
+                for customers on the go.
+              </p>
+              <a>
+                <a href="#" class="view-work-btn"id="portfolio-category">Mobile App</a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // Portfolio Section // -->
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-description">
+              Ready to take your project to the next level? Do not hesitate just get in touch and
+              let's create something amazing together.
+            </p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <strong>Email:</strong>
+                <span id="info">mataisomi02@gmail.com</span>
+              </div>
+              <div class="contact-item">
+                <strong>Phone:</strong>
+                <span id="info">0738734725</span>
+              </div>
+              <div class="contact-item">
+                <strong>Location:</strong>
+                <span id="info">Sweden, Östergötland</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contact-form" method="POST" action="/contact">
+              <div class="form-group">
+                <input name="name" type="text" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input name="email" type="email" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <input name="subject" type="text" placeholder="Subject" required />
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="primary-button">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // Contact Section // -->
+
+
+
+
+
+
+
+
+
+    <!-- Message Alert-->
+    <div id="contact-modal" class="contact-modal">
+      <div class="contact-modal-content">
+        <span id="contact-modal-close" class="contact-modal-close">&times;</span>
+        <h3>Thank you!</h3>
+        <p>Your message has been sent successfully</p>
+        <p>I will reply as fast as I can</p>
+      </div>
+    </div>
+    <!-- // Message Alert // -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>MS</h3>
+            <p id="footer-typewriter">Pixels are my paint. Code is my brush</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="#services">Desktop Apps</a></li>
+                <li><a href="#services">Web Development</a></li>
+                <li><a href="#services">Mobile Apps</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#about">About </a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Follow Me</h4>
+              <ul>
+                <li><a href="https://discord.com/users/1354452334528430412" target="_blank">Discord</a></li>
+                <li><a href="https://linkedin.com/in/matai-somi-33632a325/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/msjunior10" target="_blank">Github</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 MS. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!--// Footer section//-->
+  <!-- // Main content //-->
+
+
+  <script src="portfolio.js"></script>
+</body>
+
+</html>
