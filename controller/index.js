@@ -60,7 +60,7 @@ app.post('/contact', upload.none(), (req, res) => {
       pass: process.env.GMAIL_PASS
     }
   });
-  
+
 app.post('/contact', async (req, res) => {
   let { name, email, subject, message } = req.body;
 

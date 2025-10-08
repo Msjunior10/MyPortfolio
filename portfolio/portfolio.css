@@ -2348,10 +2348,10 @@ textarea:focus {
 
 @media (max-width: 768px) {
   .nav-menu {
-    display: none;
+    display: none !important;
   }
   .nav-menu.mobile-active {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     position: fixed;
     top: 0; left: 0;
@@ -2419,5 +2419,61 @@ body.dark .mobile-menu-toggle span {
   .hero {
     padding-top: 110px;
     padding-bottom: 10px;
+  }
+}
+
+/* Mobilvänlig nav-menu och ikoner */
+@media (max-width: 500px) {
+  .nav-menu.mobile-active {
+    flex-direction: column;
+    gap: 1px;
+    padding-top: 80px; 
+    padding-bottom: 40px;
+    margin-bottom: 100px;
+  }
+  .nav-menu li {
+    margin: 0.8rem 0;
+  }
+  .nav-menu a {
+    font-size: 1.6rem;
+    color: #00ff00;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    width: 90vw;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .cta-icons {
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  .cta-icons img, .cta-icons svg {
+    width: 40px;
+    height: 40px;
+    margin: 0 0.5rem;
+  }
+  .primary-button, .cta-button {
+    font-size: 1.2rem;
+    padding: 14px 28px;
+    margin-top: 2rem;
+    width: 90vw;
+    max-width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mobile-menu-toggle {
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+  }
+  .mobile-menu-toggle span {
+    width: 32px;
+    height: 5px;
+    margin: 6px 0;
   }
 }
