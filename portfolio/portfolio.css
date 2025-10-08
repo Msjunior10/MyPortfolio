@@ -2493,4 +2493,25 @@ body.dark .mobile-menu-toggle span {
     padding-right: 0;
     box-sizing: border-box;
   }
+
+
+  .about-image{
+    margin-right: 30px;
+
+  }
+  .container-video{
+    margin-right: 12px;
+  }
+  .service-card{
+    margin-right: 17px;
+  }
+  .portfolio-item{
+    margin-right: 21px;
+  }
+  .contact-form {
+    margin-right: 16px;
+  }
+  .footer-content {
+    margin-left: 10px;
+  }
 }
