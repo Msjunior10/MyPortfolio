@@ -43,7 +43,24 @@ app.post('/contact', upload.none(), (req, res) => {
 
 
 
+
+
+
+
+
+
+
+
 /*Kontakt formulärets endpoint för att skicka email med nodemailer och Gmail*/
+ // Skapa transporter för Gmail
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER,      
+      pass: process.env.GMAIL_PASS
+    }
+  });
+  
 app.post('/contact', async (req, res) => {
   let { name, email, subject, message } = req.body;
 
@@ -56,15 +73,6 @@ app.post('/contact', async (req, res) => {
   if (!name || !email || !message || !subject) {
     return res.status(400).send('Vänligen fyll i alla obligatoriska fält.');
   }
-
-  // Skapa transporter för Gmail
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,      
-      pass: process.env.GMAIL_PASS
-    }
-  });
 
   // Skapa e-postmeddelandet
   const mailOptions = {
