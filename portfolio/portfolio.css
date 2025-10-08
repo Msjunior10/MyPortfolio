@@ -2515,3 +2515,9 @@ body.dark .mobile-menu-toggle span {
     margin-left: 10px;
   }
 }
+
+@media (max-width: 440px) {
+  .contact-form {
+    margin-right: 20px;
+  }
+}
