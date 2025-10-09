@@ -121,7 +121,7 @@
         }
 
         .social-links a:hover {
-            color: #fff;
+            color: #00ff00;
             text-shadow: var(--accent-glow);
         }
 
@@ -149,6 +149,44 @@
                 padding: 20px;
             }
         }
+        /* Gör container och text mindre och centrerad på mobil */
+@media (max-width: 500px) {
+  .container {
+    max-width: 95vw;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 0.95em;
+    margin-bottom: 18px;
+  }
+  .progress-bar {
+    width: 90vw;
+    height: 14px;
+    margin: 18px auto;
+  }
+  .social-links a {
+    font-size: 1.5em;
+    margin: 0 8px;
+    padding: 8px;
+  }
+  .back-home {
+    top: 10px;
+    left: 10px;
+  }
+  .back-home img, .back-home svg {
+    width: 36px;
+    height: 36px;
+  }
+}
     </style>
 </head>
 <body>
