@@ -2532,3 +2532,11 @@ body.dark .mobile-menu-toggle span {
     margin-left: 10px;
   }
 }
+
+html, body {
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
