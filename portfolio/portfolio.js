@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-/* Dark theme and Light theme*/
+//Dark theme and Light theme
 document.addEventListener('DOMContentLoaded', function() {
   const checkbox = document.getElementById('checkbox');
   const body = document.body;
@@ -505,6 +505,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
 
 
 

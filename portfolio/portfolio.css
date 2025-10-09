@@ -2525,4 +2525,10 @@ body.dark .mobile-menu-toggle span {
     box-sizing: border-box;
     display: block;
   }
+  .service-card{
+    margin-left: 10px;
+  }
+  .portfolio-item{
+    margin-left: 10px;
+  }
 }
