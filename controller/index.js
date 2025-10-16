@@ -10,6 +10,17 @@ require('dotenv').config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 
+app.set('trust proxy', 1);
+
+
+
+
+// Redirect till AI Assistant
+app.get('/ai', (req, res) => {
+  res.redirect('https://msaiassistant.onrender.com');
+  console.log(res);
+});
+
 
 // Servera statiska filer från din portfolio-mapp
 app.use(express.static(path.join(__dirname, '..', 'portfolio')));
@@ -108,3 +119,9 @@ app.get('/underconst', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'portfolio', 'underconst.html'));
   }
 });
+
+
+
+
+
+
