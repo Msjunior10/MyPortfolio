@@ -7,6 +7,11 @@ const validator = require('validator');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
+const contactLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000,
+  max: 5
+});
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 
@@ -72,7 +77,7 @@ app.post('/contact', upload.none(), (req, res) => {
     }
   });
 
-app.post('/contact', async (req, res) => {
+app.post('/contact', contactLimiter, async (req, res) => {
   let { name, email, subject, message } = req.body;
 
   name = validator.escape(name || '');
@@ -102,13 +107,6 @@ app.post('/contact', async (req, res) => {
     res.status(500).send('Kunde inte skicka meddelandet.');
   }
 });
-
-
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minut
-  max: 5 // max 10 requests per minut
-});
-app.use(limiter);
 
 
 app.get('/underconst', (req, res) => {

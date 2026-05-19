@@ -139,7 +139,7 @@ body {
  background-blend-mode: lighten;
   background-size: 400% 400%;
   animation: gradientMove 30s ease-in-out infinite;
-  background-attachment: fixed;
+  background-attachment: scroll;
   position: relative;
   margin: 0;
 }
@@ -175,6 +175,12 @@ body {
   inset: 0;                 /* top:0;left:0;right:0;bottom:0; */
   pointer-events: none;
   z-index: 0;               /* lägger overlay bakom innehåll men ovanför bakgrunden */
+  overflow: hidden;
+  contain: layout style paint;
+}
+
+#sparkles[data-theme="dark"] {
+  opacity: 0.95;
 }
 
 /* Varje prick */
@@ -184,10 +190,15 @@ body {
   height: 2px;
   border-radius: 50%;
   background: #e400e4;            /* rosa-nyans (ändra om du vill) */
-  box-shadow: -2xp 2xp 12px #e400e4;    /* glow */
+  box-shadow: 0 0 10px rgba(228, 0, 228, 0.55);    /* glow */
   opacity: 0;
   transform: scale(0.6);
   animation: sparkleAnim 2s linear infinite;
+}
+
+#sparkles[data-theme="dark"] .sparkle {
+  background: #00ff88;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.55);
 }
 
 /* animation */
@@ -445,6 +456,11 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 1px solid #222;
 }
 
+  body.dark .navbar {
+    background: rgba(0, 0, 0, 0.96);
+    backdrop-filter: none;
+  }
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -490,16 +506,16 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
     border-radius: 4px;
     text-decoration: none;
     font-weight: 400;
-    transition: color 0.3s ease;
+  transition: filter 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .nav-menu a:hover {
-    filter: brightness(3) drop-shadow(-3px 4px 10px #e400e4);
-    text-decoration: underline;
+  filter: brightness(1.5) drop-shadow(0 0 16px #e400e4);
+  text-shadow: 0 0 14px rgba(228, 0, 228, 0.58), 0 0 26px rgba(139, 92, 246, 0.38);
+  text-decoration: none;
 }
 
 .cta-icons svg:hover {
@@ -518,6 +534,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1600px;
   margin: 100px auto;
   padding: 0 20px;
+  content-visibility: auto;
+  contain-intrinsic-size: 670px;
 }
 
 .video-intro {
@@ -704,6 +722,14 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+body:not(.dark) .title-line {
+  background: linear-gradient(135deg, #f8fbff 0%, #e400e4 42%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 16px rgba(228, 0, 228, 0.18), 0 0 28px rgba(139, 92, 246, 0.12);
 }
 
 .hero-subtitle {
@@ -999,6 +1025,25 @@ body.dark .container,
 body.dark .about,
 body.dark .services,
 body.dark .portfolio,
+body.dark .contact {
+  background: #000000 !important;
+}
+
+body.dark .service-card,
+body.dark .portfolio-item,
+body.dark .contact-form,
+body.dark .image-placeholder,
+body.dark .hero-gradient,
+body.dark .stat-item,
+body.dark .footer {
+  background: #000000 !important;
+  box-shadow: 0 0 16px rgba(0, 255, 0, 0.18), 0 0 6px rgba(0, 255, 0, 0.08), inset 0 0 0 1px rgba(0, 255, 0, 0.08);
+}
+
+body.dark .container,
+body.dark .about,
+body.dark .services,
+body.dark .portfolio,
 body.dark .contact,
 body.dark .service-card,
 body.dark .portfolio-item,
@@ -1008,7 +1053,6 @@ body.dark .hero-gradient,
 body.dark .stat-item,
 body.dark .footer {
   background: #000000 !important; /* solid mörk bakgrund */
-  box-shadow: 0 0 24px 2px #00ff00, 0 0 8px 2px #00ff00;
 }
 
 
@@ -1018,14 +1062,14 @@ body.dark .primary-button,
 body.dark .cta-button {
   background: #00ff00;
   color: #000000;
-  box-shadow: 0 0 16px #00ff00, 0 0 4px #00ff00;
+  box-shadow: 0 0 22px rgba(0, 255, 0, 0.42), 0 0 10px rgba(0, 255, 0, 0.24);
   border: none;
 }
 body.dark .primary-button:hover,
 body.dark .cta-button:hover {
   background: #000000;
   color: #00ff00;
-  box-shadow: 0 0 32px #00ff00;
+  box-shadow: 0 0 28px rgba(0, 255, 0, 0.48), 0 0 14px rgba(0, 255, 0, 0.28);
   border: 1px solid #00ff00;
 }
 
@@ -1054,7 +1098,7 @@ body.dark h4,
 body.dark h5, 
 body.dark h6 {
   color: #00ff00 !important;
-  text-shadow: 0 0 8px #00ff00;
+  text-shadow: 0 0 7px rgba(0, 255, 0, 0.5);
 }
 
 
@@ -1075,15 +1119,25 @@ body.dark .contact-item strong {
   background: none !important;
   color: #00ff00 !important;
   -webkit-text-fill-color: #00ff00 !important;
-  text-shadow: 0 0 8px #00ff00;
+  text-shadow: 0 0 7px rgba(0, 255, 0, 0.38);
   text-decoration: none;
+}
+
+body.dark .service-icon {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.34));
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.34), 0 0 18px rgba(0, 255, 0, 0.18);
+}
+
+body.dark .service-card:hover .service-icon {
+  filter: drop-shadow(0 0 16px rgba(0, 255, 0, 0.46));
+  text-shadow: 0 0 14px rgba(0, 255, 0, 0.48), 0 0 26px rgba(0, 255, 0, 0.22);
 }
 
 
 body.dark .hero-subtitle {
   color: linear-gradient(135deg, #00ff00, #00ff00);
   -webkit-text-fill-color: #00ff00 !important;
-  text-shadow: 0 0 8px #00ff00;
+  text-shadow: 0 0 6px rgba(0, 255, 0, 0.24);
 } 
 
 
@@ -1093,7 +1147,7 @@ body.dark .title-line {
   background-clip: initial !important;
   color: #00ff00 !important;
   -webkit-text-fill-color: #00ff00 !important;
-  text-shadow: 0 0 8px #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
 }
 
 
@@ -1110,14 +1164,14 @@ body.dark .image-placeholder:hover,
 body.dark .hero-gradient:hover,
 body.dark .footer-column ul li a:hover,
 body.dark .nav-menu a:hover {
-  filter: drop-shadow(0 0 16px #00ff00) brightness(1.2) !important;
-  box-shadow: 0 0 24px #00ff00, 0 0 8px #00ff00 !important;
+  filter: none !important;
+  box-shadow: 0 0 26px rgba(0, 255, 0, 0.42) !important;
   color: #00ff00 !important;
 
 }
 
 body.dark .logo-item img:hover {
-  filter: drop-shadow(0 0 24px #00ff00) ;
+  filter: drop-shadow(0 0 14px rgba(0, 255, 0, 0.48));
   border-radius: 12px;
   transition: filter 0.2s, border-radius 0.2s;
   color: #00ff00 !important;
@@ -1129,57 +1183,74 @@ body.dark .footer-column ul li a:hover {
   background: none !important;
   color: #00ff00 !important;
   -webkit-text-fill-color: #00ff00 !important;
-  text-shadow: 0 0 8px #00ff00;
+  text-shadow: 0 0 12px rgba(0, 255, 0, 0.52), 0 0 22px rgba(0, 255, 0, 0.24);
 }
 
 body.dark .sparkle,
 body.dark .sparkles {
-  background: #00ff00 !important;
-  box-shadow: 0 0 8px #00ff00, 0 0 16px #00ff00;
+  background: #00ff88 !important;
+  box-shadow: 0 0 11px rgba(0, 255, 136, 0.52), 0 0 18px rgba(0, 255, 136, 0.18);
 }
-/* Om du har andra ikoner, lägg till deras klasser ovan */
 
 body.dark .cta-icons svg {
   color: #00ff00 !important;
-  filter: drop-shadow(0 0 16px #00ff00);
+  filter: none;
   border-radius: 10px;
 }
+
 body.dark .cta-icons svg:hover {
-  filter: drop-shadow(0 0 25px #00ff00) ;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 0, 0.48));
   border-radius: 10px;
 }
 
 body.dark .cta-icons img,
 body.dark .cta-icons img:hover {
-  filter: drop-shadow(0 0 25px #00ff00)  !important;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 0, 0.48)) !important;
   border-radius: 10px;
 }
 
 body.dark .logo-item img {
-  filter: grayscale(0) drop-shadow(0 0 30px #00ff00) drop-shadow(0 0 16px #00ff00);
+  filter: brightness(0) saturate(100%) invert(74%) sepia(98%) saturate(4876%) hue-rotate(87deg) brightness(114%) contrast(126%) drop-shadow(0 0 10px #00ff00);
+  opacity: 1;
   border-radius: 10px;
 }
 body.dark .logo-item img:hover {
-  filter: grayscale(100) drop-shadow(0 0 70px #00ff00) drop-shadow(0 0 32px #00ff00);
+  filter: brightness(0) saturate(100%) invert(74%) sepia(98%) saturate(4876%) hue-rotate(87deg) brightness(120%) contrast(130%) drop-shadow(0 0 16px #00ff00);
   border-radius: 12px;
+}
+
+body.dark .logo-item {
+  padding: 0.45rem;
+  border-radius: 14px;
+  background: rgba(0, 255, 0, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(0, 255, 0, 0.06), 0 0 6px rgba(0, 255, 0, 0.05);
 }
 
 
 body.dark .hero-gradient {
   /* Samma cirkel, samma bakgrund, men grön glow istället för rosa/lila */
-  box-shadow: -5px 5px 40px 0 #00ff00 !important;
+  box-shadow: -5px 5px 42px rgba(0, 255, 0, 0.46), 0 0 24px rgba(0, 255, 0, 0.28), 0 0 68px rgba(0, 255, 0, 0.18) !important;
+  will-change: transform;
 }
 
 body.dark .hero-gradient.glow,
 body.dark .hero-gradient.spin,
 body.dark .hero-gradient.float {
   /* Om du har flera varianter, ge dem också grön glow */
-  box-shadow: 0 0 64px 16px #00ff00, 0 0 32px 8px #00ff00 !important;
+  box-shadow: 0 0 44px rgba(0, 255, 0, 0.42), 0 0 22px rgba(0, 255, 0, 0.28), 0 0 74px rgba(0, 255, 0, 0.16) !important;
+  animation: pulse 5.8s ease-in-out infinite;
+}
+
+body.dark .hero-gradient:hover,
+body.dark .hero-gradient.spin:hover,
+body.dark .hero-gradient.glow:hover,
+body.dark .hero-gradient.float:hover {
+  box-shadow: 0 0 56px rgba(0, 255, 0, 0.54), 0 0 28px rgba(0, 255, 0, 0.34), 0 0 96px rgba(0, 255, 0, 0.24) !important;
 }
 
 body.dark .nav-menu a:hover,
 .nav-menu a:hover {
-  filter: brightness(3) drop-shadow(-3px 4px 10px #00ff00);
+  filter: none;
   /* Ta bort eller skriv över denna rad: */
   /* text-decoration: underline; */
   text-decoration: none !important;
@@ -1199,8 +1270,17 @@ body.dark .service-card p,
 body.dark .footer-bottom p {
   color: #00ff00 !important;
   -webkit-text-fill-color: #00ff00 !important;
-  text-shadow: 0 0 8px #00ff00;
+  text-shadow: none;
   background: none !important;
+}
+
+body.dark .hero-subtitle,
+body.dark .section-description,
+body.dark .portfolio-content p,
+body.dark .service-card p,
+body.dark .footer-bottom p,
+body.dark .footer-logo p {
+  text-shadow: 0 0 2px rgba(0, 255, 0, 0.12);
 }
 
 body.dark #scrollToTop {
@@ -1213,24 +1293,37 @@ body.dark #scrollToTop {
 body.dark #scrollToTop:hover {
   background: #00ff00 !important;
   color: #000 !important;
-  box-shadow: 0 0 32px 8px #00ff00, 0 0 16px 4px #00ff00 !important;
+  box-shadow: 0 0 26px rgba(0, 255, 0, 0.48) !important;
+}
+
+body.dark .service-card:hover,
+body.dark .portfolio-item:hover,
+body.dark .image-placeholder:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.3), 0 0 16px rgba(0, 255, 0, 0.2) !important;
+  border-color: rgba(0, 255, 0, 0.55);
+}
+
+body.dark .section-title,
+body.dark .nav-logo h2,
+body.dark .hero-title {
+  letter-spacing: 0.01em;
 }
 
 body.dark .sparkle,
 body.dark .sparkles {
-  background: #00ff00 !important;
-  box-shadow: 0 0 16px #00ff00, 0 0 32px #00ff00;
+  background: #00ff88 !important;
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.62), 0 0 24px rgba(0, 255, 136, 0.24);
   opacity: 1 !important;
 }
 
-body.dark .services,
-body.dark .contact {
-  position: relative;
-  z-index: 1;
+body.dark .service-card::before,
+body.dark .portfolio-item::before {
+  opacity: 0.55;
 }
 
 body.dark #sparkles {
-  z-index: 2; /* Se till att sparklingarna ligger ovanför sektionerna */
+  display: block;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -1266,7 +1359,7 @@ body.dark #info {
 }
 
 body.dark .video-intro {
-  box-shadow: 0 0 40px 8px #00ff00, 0 0 16px 4px #00ff00 !important;
+  box-shadow: 0 0 18px 4px rgba(0, 255, 0, 0.32), 0 0 8px 2px rgba(0, 255, 0, 0.18) !important;
   background: #000 !important;
 }
 
@@ -1313,7 +1406,7 @@ body.dark #portfolio-e-commerce-website {
 }
 /*// Dark and light theme for the progects pictures //*/
 
-body.dark #portfolio-category {
+body.dark .portfolio-category {
   border: 3px solid #00ff00;
   background: none !important;
   color: #00ff00 !important;
@@ -1402,7 +1495,7 @@ body.dark .content .text:nth-child(2) {
     padding: 2.5rem;
     border-radius: 12px;
     border: 1px solid #222;
-    transition: all 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     position: relative;
     overflow: hidden;
     margin-bottom: 15px;
@@ -1425,13 +1518,20 @@ body.dark .content .text:nth-child(2) {
 }
 
 .service-card:hover {
-    transform: translateY(7px);
-    filter: drop-shadow(-3px 3px 12px #e400e4);
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 22px 38px rgba(228, 0, 228, 0.26), 0 0 26px rgba(228, 0, 228, 0.22), 0 0 18px rgba(139, 92, 246, 0.14);
+  border-color: rgba(228, 0, 228, 0.35);
+}
+
+.service-card:hover .service-icon {
+    transform: translateY(-4px) scale(1.06);
+    filter: drop-shadow(0 0 14px rgba(228, 0, 228, 0.38));
 }
 
 .service-icon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    transition: transform 0.35s ease, filter 0.35s ease;
 }
 
 .service-card h3 {
@@ -1495,8 +1595,7 @@ body.dark .content .text:nth-child(2) {
 
 .portfolio-item:hover {
     transform: translateY(-5px);
-    
-    filter: drop-shadow(0 0 8px #e400e4);
+  box-shadow: 0 14px 28px rgba(228, 0, 228, 0.16);
     border-color: #e400e4;
 }
 
@@ -1532,7 +1631,7 @@ body.dark .content .text:nth-child(2) {
     margin-bottom: 1rem;
 }
 
-#portfolio-category {
+.portfolio-category {
     display: inline-block;
     background: linear-gradient(135deg, #e400e4 0%, #8b5cf6 100%);
     padding: 0.3rem 0.8rem;
@@ -1809,13 +1908,14 @@ body.dark .contact-modal-content {
     border-radius: 4px;
     text-decoration: none;
     font-weight: 400;
-    transition: color 0.3s ease;
+  transition: filter 0.3s ease, text-shadow 0.3s ease;
 }
 
 
 .footer-column ul li a:hover {
-    filter: brightness(2.5) drop-shadow(-3px 4px 10px #e400e4);
-    text-decoration: underline;
+  filter: brightness(1.3) drop-shadow(0 0 12px #e400e4);
+  text-shadow: 0 0 10px rgba(228, 0, 228, 0.45), 0 0 18px rgba(139, 92, 246, 0.25);
+  text-decoration: none;
 }
 
 .footer-bottom {
